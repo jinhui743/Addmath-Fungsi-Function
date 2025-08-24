@@ -125,6 +125,13 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
+        
+        .btn:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
 
         #quiz-screen {
             display: none;
@@ -199,29 +206,13 @@
             font-weight: bold;
         }
 
-        .option-btn.correct {
-            background-color: var(--success-color);
-            border-color: var(--success-color);
-            color: white;
-        }
-        
-        .option-btn.wrong {
-            background-color: var(--danger-color);
-            border-color: var(--danger-color);
-            color: white;
-        }
-        
-        .option-btn.disabled {
-            pointer-events: none;
-        }
-
-        #navigation-buttons {
+        .navigation-buttons {
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
         }
 
-        #navigation-buttons .btn {
+        .navigation-buttons .btn {
             width: 48%;
         }
         
@@ -280,8 +271,6 @@
         #results-table td .status-wrong { color: var(--danger-color); font-weight: bold; }
         
         .latex { font-family: "Times New Roman", serif; }
-
-        .hidden { display: none; }
         
         #loading-overlay {
             position: fixed;
@@ -290,7 +279,7 @@
             width: 100%;
             height: 100%;
             background: rgba(255, 255, 255, 0.8);
-            display: flex;
+            display: none; /* MODIFIED: Default state is hidden */
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -364,7 +353,7 @@
                 </div>
                 <div id="question-text"></div>
                 <div class="options-container" id="options-container"></div>
-                <div id="navigation-buttons">
+                <div class="navigation-buttons">
                     <button class="btn" id="next-btn" onclick="nextQuestion()">下一题</button>
                 </div>
             </div>
@@ -396,26 +385,13 @@
     </div>
 
     <!-- Loading Overlay -->
-    <div id="loading-overlay" class="hidden">
+    <div id="loading-overlay">
         <div class="spinner"></div>
         <p id="loading-text">正在提交成绩...</p>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
-        // --- GOOGLE FORM CONFIGURATION ---
-        const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLScE400-TL63-PS-mSzhm2P6pKBEYkcdeFcV05CuF9rNssAysA/formResponse';
-        const ENTRY_IDS = {
-            NAME: 'entry.1734280046',
-            CAMPUS: 'entry.324392523',
-            GRADE: 'entry.334192525',
-            SCORE: 'entry.1197406020',
-            PERCENTAGE: 'entry.331240590',
-            TOPIC: 'entry.1909146688',
-            REPORT_LINK: 'entry.2063783972'
-        };
-        const QUIZ_TOPIC = '高级数学 Fungsi Function';
-
         // --- QUIZ DATA ---
         const allQuestions = [];
         const baseQuestions = [
@@ -433,7 +409,7 @@
             { q: "Diberi <span class=latex>g(x) = 2x-3</span> dan <span class=latex>h(x) = 2x^2+2</span>. Cari <span class=latex>hg(x)</span>. <br> Given <span class=latex>g(x) = 2x-3</span> and <span class=latex>h(x) = 2x^2+2</span>. Find <span class=latex>hg(x)</span>.", a: "8x^2 - 24x + 20" },
             { q: "Diberi <span class=latex>g(x) = 2x-3</span> dan <span class=latex>h(x) = 2x^2+2</span>. Cari <span class=latex>gh(x)</span>. <br> Given <span class=latex>g(x) = 2x-3</span> and <span class=latex>h(x) = 2x^2+2</span>. Find <span class=latex>gh(x)</span>.", a: "4x^2 + 1" },
             { q: "Diberi <span class=latex>f(x)=2x+1</span> dan <span class=latex>g(x) = \\frac{3}{x+1}</span>. Cari nilai <span class=latex>fg(-2)</span>. <br> Given <span class=latex>f(x)=2x+1</span> and <span class=latex>g(x) = \\frac{3}{x+1}</span>. Find the value of <span class=latex>fg(-2)</span>.", a: "-5" },
-            { q: "Diberi <span class=latex>f(x)=5x-2</span> dan <span class=latex>g(x) = \\frac{4}{2x-3}</span>. Cari nilai <span class=latex>gf(2)</span>. <br> Given <span class=latex>f(x)=5x-2</span> and <span class=latex>g(x) = \\frac{4}{2x-3}</span>. Find the value of <span class=latex>gf(2)</span>.", a: "4/13" },
+            { q: "Diberi <span class=latex>f(x)=5x-2</span> dan <span class=latex>g(x) = \\frac{4}{2x-3}</span>. Cari nilai <span class=latex>gf(2)</span>. <br> Given <span class=latex>f(x)=5x-2</span> and <span class=latex>g(x) = \\frac{4}{2x-3}</span>. Find the value of <span class=latex>gf(2)</span>.", a: "0.2" },
             { q: "Diberi <span class=latex>f(x) = 5 - 8x</span>. Cari objek bagi imej 6. <br> Given <span class=latex>f(x) = 5 - 8x</span>. Find the object for the image 6.", a: "-0.125" },
             { q: "Fungsi <span class=latex>f</span> ditakrifkan oleh <span class=latex>f(x) = x+k</span>. Cari nilai <span class=latex>k</span> dengan keadaan <span class=latex>f(4)=2</span>. <br> The function <span class=latex>f</span> is defined by <span class=latex>f(x) = x+k</span>. Find the value of <span class=latex>k</span> such that <span class=latex>f(4)=2</span>.", a: "-2" },
             { q: "Diberi <span class=latex>f(x) = 2x+7</span>, cari objek jika imej ialah 3. <br> Given <span class=latex>f(x)=2x+7</span>, find the object when the image is 3.", a: "-2" },
@@ -441,7 +417,6 @@
         ];
 
         const generatedQuestions = [
-            // Generated questions will be populated here
             { q: "Diberi <span class=latex>f(x) = 3x - 5</span>, cari nilai bagi <span class=latex>f(4)</span>. <br> Given <span class=latex>f(x) = 3x - 5</span>, find the value of <span class=latex>f(4)</span>.", a: "7" },
             { q: "Diberi <span class=latex>f(x) = x^2 + 2x</span>, cari nilai bagi <span class=latex>f(-3)</span>. <br> Given <span class=latex>f(x) = x^2 + 2x</span>, find the value of <span class=latex>f(-3)</span>.", a: "3" },
             { q: "Diberi <span class=latex>g(x) = \\frac{10}{x-3}</span>, cari nilai bagi <span class=latex>g(8)</span>. <br> Given <span class=latex>g(x) = \\frac{10}{x-3}</span>, find the value of <span class=latex>g(8)</span>.", a: "2" },
@@ -483,6 +458,8 @@
             { q: "Diberi <span class=latex>f(x)=x^2, g(x)=\\sqrt{x}</span>. Cari <span class=latex>fg(16)</span>. <br> Given <span class=latex>f(x)=x^2, g(x)=\\sqrt{x}</span>. Find <span class=latex>fg(16)</span>.", a: "16" },
             { q: "Diberi <span class=latex>f(x)=2x, g(x)=x/2</span>. Cari <span class=latex>gf(x)</span>. <br> Given <span class=latex>f(x)=2x, g(x)=x/2</span>. Find <span class=latex>gf(x)</span>.", a: "x" },
         ];
+        
+        const QUIZ_TOPIC = '高级数学 Fungsi Function';
 
         // --- QUIZ STATE ---
         let currentQuizQuestions = [];
@@ -526,30 +503,27 @@
 
         function generateOptions(correctAnswer) {
             let options = new Set([correctAnswer]);
-            const answerType = isNaN(parseFloat(correctAnswer)) ? 'string' : 'number';
+            const answerType = isNaN(parseFloat(correctAnswer)) || correctAnswer.includes('x') ? 'string' : 'number';
 
             if (answerType === 'number') {
                 const num = parseFloat(correctAnswer);
                 while (options.size < 4) {
                     let wrongOption;
                     const rand = Math.random();
-                    if (rand < 0.33) wrongOption = num + Math.ceil(Math.random() * 5);
-                    else if (rand < 0.66) wrongOption = num - Math.ceil(Math.random() * 5);
-                    else wrongOption = -num;
-                    if (wrongOption !== num) options.add(String(wrongOption.toFixed(3)).replace(/\.?0+$/, ""));
+                    if (options.size === 1) wrongOption = num + 1;
+                    else if (options.size === 2) wrongOption = num - 1;
+                    else wrongOption = num + (Math.floor(Math.random() * 5) + 1) * (Math.random() > 0.5 ? 1 : -1);
+                    
+                    if(wrongOption !== num) options.add(String(wrongOption.toFixed(3)).replace(/\.?0+$/, ""));
                 }
-            } else { // string/expression
-                // Simple variations for expressions
+            } else {
                 if (correctAnswer.includes('x')) {
                     options.add(correctAnswer.replace('+', '-'));
-                    options.add(correctAnswer.replace(/\d+$/, d => parseInt(d) + 2));
-                    // A more complex variation
-                    let parts = correctAnswer.split('x');
-                    if (parts.length > 1 && !isNaN(parts[0])) {
-                         options.add((parseInt(parts[0])+1) + 'x' + (parts[1] || ''));
-                    }
+                     if(correctAnswer.match(/\d+$/)) {
+                        options.add(correctAnswer.replace(/\d+$/, d => parseInt(d) + 2));
+                     }
                 }
-                 while (options.size < 4) {
+                while (options.size < 4) {
                     options.add(`Bukan jawapan di atas (${options.size})`);
                 }
             }
@@ -626,12 +600,7 @@
             
             const finalScorePercentage = (score / currentQuizQuestions.length) * 100;
             if (finalScorePercentage >= 80) {
-                // Trigger confetti
-                confetti({
-                    particleCount: 150,
-                    spread: 90,
-                    origin: { y: 0.6 }
-                });
+                confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 } });
             }
         }
 
@@ -672,34 +641,55 @@
         }
         
         async function submitToGoogleForm() {
-            loadingOverlay.style.display = 'flex';
+            // =================================================================================
+            // ===================  重要：请在这里粘贴您的 WEB APP URL  ====================
+            // =================================================================================
+            const WEB_APP_URL = 'https://docs.google.com/forms/d/1VDVAnUuSYvWHaPGQSHTdMzZebGy_i3HONCv0KX3GPmY/prefill'; // <--- 粘贴到这里
+
+            if (WEB_APP_URL === 'https://docs.google.com/forms/d/1VDVAnUuSYvWHaPGQSHTdMzZebGy_i3HONCv0KX3GPmY/prefill' || WEB_APP_URL === '') {
+                 alert('错误：管理员尚未配置提交链接！请联系学院。');
+                 return;
+            }
+
+            loadingOverlay.style.display = 'flex'; // Show loading spinner
             document.getElementById('submit-btn').disabled = true;
 
             const reportLink = generateReportLink();
             const finalScorePercentage = (score / currentQuizQuestions.length) * 100;
 
-            const formData = new FormData();
-            formData.append(ENTRY_IDS.NAME, studentInfo.studentName);
-            formData.append(ENTRY_IDS.CAMPUS, studentInfo.campus);
-            formData.append(ENTRY_IDS.GRADE, studentInfo.studentGrade);
-            formData.append(ENTRY_IDS.SCORE, finalScorePercentage.toFixed(0));
-            formData.append(ENTRY_IDS.PERCENTAGE, `${finalScorePercentage.toFixed(0)}%`);
-            formData.append(ENTRY_IDS.TOPIC, QUIZ_TOPIC);
-            formData.append(ENTRY_IDS.REPORT_LINK, reportLink);
+            const submissionData = {
+                name: studentInfo.studentName,
+                campus: studentInfo.campus,
+                grade: studentInfo.studentGrade,
+                score: finalScorePercentage.toFixed(0),
+                percentage: `${finalScorePercentage.toFixed(0)}%`,
+                topic: QUIZ_TOPIC,
+                reportLink: reportLink
+            };
 
             try {
-                await fetch(GOOGLE_FORM_URL, {
+                const response = await fetch(WEB_APP_URL, {
                     method: 'POST',
-                    body: formData,
-                    mode: 'no-cors' // Important for cross-origin submissions to Google Forms
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(submissionData),
                 });
-                document.getElementById('submission-status').innerHTML = `成绩提交成功！<br>您可以复制此链接查看报告: <a href="${reportLink}" target="_blank">报告链接</a>`;
+                
+                const result = await response.json();
+
+                if (result.status === 'success') {
+                     document.getElementById('submission-status').innerHTML = `成绩提交成功！<br>您可以复制此链接查看报告: <a href="${reportLink}" target="_blank">报告链接</a>`;
+                } else {
+                    throw new Error(result.message || 'Unknown error from server.');
+                }
+
             } catch (error) {
                 console.error('Error submitting form:', error);
-                document.getElementById('submission-status').textContent = '提交失败，请检查网络连接。';
-                 document.getElementById('submission-status').style.color = 'red';
+                document.getElementById('submission-status').textContent = '提交失败，请检查网络连接或联系管理员。';
+                document.getElementById('submission-status').style.color = 'red';
             } finally {
-                loadingOverlay.style.display = 'none';
+                loadingOverlay.style.display = 'none'; // Hide loading spinner
             }
         }
         
@@ -711,34 +701,34 @@
                 score: score,
                 total: currentQuizQuestions.length
             };
-            const encodedData = btoa(JSON.stringify(reportData));
-            return `${window.location.href.split('?')[0]}?report=${encodedData}`;
+            const encodedData = btoa(unescape(encodeURIComponent(JSON.stringify(reportData))));
+            const url = new URL(window.location.href);
+            url.search = `?report=${encodedData}`;
+            return url.toString();
         }
         
         function displayReportFromURL(encodedData) {
             try {
-                const decodedData = atob(encodedData);
+                const decodedData = decodeURIComponent(escape(atob(encodedData)));
                 const reportData = JSON.parse(decodedData);
                 
-                // Populate global state
                 studentInfo = reportData.studentInfo;
                 currentQuizQuestions = reportData.questions;
                 userAnswers = reportData.userAnswers;
                 score = reportData.score;
                 
-                // Show only the report
                 startScreen.style.display = 'none';
                 quizScreen.style.display = 'none';
                 reportScreen.style.display = 'block';
                 
                 document.querySelector('.quiz-header h1').textContent = `${studentInfo.studentName}的测验报告`;
-                document.getElementById('submit-btn').style.display = 'none'; // Hide submit button when viewing a report
+                document.getElementById('submit-btn').style.display = 'none';
                 
                 generateReport();
 
             } catch (e) {
                 console.error("Failed to parse report data from URL:", e);
-                document.body.innerHTML = "<h1>无法加载报告链接，数据已损坏。</h1>";
+                document.body.innerHTML = "<h1>无法加载报告链接，数据可能已损坏或过期。</h1>";
             }
         }
 
