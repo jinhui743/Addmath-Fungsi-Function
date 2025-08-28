@@ -637,9 +637,240 @@
                 answer: "4",
                 solution: "Cari $f(2)$ dahulu: $f(2) = 2+1 = 3$.<br>先求 $f(2)$: $f(2) = 2+1 = 3$。<br>Kemudian, $g(f(2)) = g(3) = 14$.<br>然后，$g(f(2)) = g(3) = 14$。<br>Gantikan $x=3$ ke dalam $g(x)$: $k(3)+2 = 14$.<br>将 $x=3$ 代入 $g(x)$: $k(3)+2 = 14$。<br>$3k = 12 \\implies k=4$."
             },
-            // Add more variations to reach 90 questions...
-            // For brevity, I'll stop here, but the code structure supports adding all 90.
-            // The following are just placeholders to show more variety.
+           {
+                question: "Diberi fungsi $f(x) = 2x + 9$, cari imej bagi 5. <br> Given the function $f(x) = 2x + 9$, find the image of 5.",
+                options: ["19", "14", "23", "11"],
+                answer: "19",
+                solution: "Untuk mencari imej bagi 5, kita gantikan $x$ dengan 5 dalam fungsi $f(x)$.<br>To find the image of 5, we substitute $x$ with 5 into the function $f(x)$.<br>$$ f(5) = 2(5) + 9 $$<br>$$ f(5) = 10 + 9 $$<br>$$ f(5) = 19 $$"
+            },
+            {
+                question: "Diberi fungsi $f: x \\to \\frac{5x+3}{2}$, cari nilai $f(-3)$. <br> Given the function $f: x \\to \\frac{5x+3}{2}$, find the value of $f(-3)$.",
+                options: ["-6", "-9", "6", "9"],
+                answer: "-6",
+                solution: "Gantikan $x$ dengan -3 ke dalam fungsi.<br>Substitute $x$ with -3 into the function.<br>$$ f(-3) = \\frac{5(-3)+3}{2} $$<br>$$ f(-3) = \\frac{-15+3}{2} $$<br>$$ f(-3) = \\frac{-12}{2} $$<br>$$ f(-3) = -6 $$"
+            },
+            {
+                question: "Diberi fungsi $f: x \\to 2x+8$. Cari objek apabila imej ialah 3. <br> Given the function $f: x \\to 2x+8$. Find the object when the image is 3.",
+                options: ["-2.5", "2.5", "5.5", "-5.5"],
+                answer: "-2.5",
+                solution: "Kita diberi $f(x) = 3$.<br>We are given $f(x) = 3$.<br>$$ 2x + 8 = 3 $$<br>$$ 2x = 3 - 8 $$<br>$$ 2x = -5 $$<br>$$ x = -\\frac{5}{2} = -2.5 $$"
+            },
+            {
+                question: "Diberi fungsi $f: x \\to 2x-3$. Cari objek apabila imej ialah 5. <br> Given the function $f: x \\to 2x-3$. Find the object when the image is 5.",
+                options: ["4", "1", "7", "2.5"],
+                answer: "4",
+                solution: "Kita diberi $f(x) = 5$.<br>We are given $f(x) = 5$.<br>$$ 2x - 3 = 5 $$<br>$$ 2x = 5 + 3 $$<br>$$ 2x = 8 $$<br>$$ x = 4 $$"
+            },
+            {
+                question: "Diberi fungsi $f: x \\to 4-2x$. Cari nilai $x$ jika $f(x)=8$. <br> Given the function $f: x \\to 4-2x$. Find the value of $x$ if $f(x)=8$.",
+                options: ["-2", "2", "6", "-6"],
+                answer: "-2",
+                solution: "Kita diberi $f(x) = 8$.<br>We are given $f(x) = 8$.<br>$$ 4 - 2x = 8 $$<br>$$ -2x = 8 - 4 $$<br>$$ -2x = 4 $$<br>$$ x = -2 $$"
+            },
+            {
+                question: "Diberi fungsi $g: x \\to \\frac{x+3}{2}$. Cari nilai $x$ jika $g(x)=3$. <br> Given the function $g: x \\to \\frac{x+3}{2}$. Find the value of $x$ if $g(x)=3$.",
+                options: ["3", "1.5", "9", "0"],
+                answer: "3",
+                solution: "Kita diberi $g(x) = 3$.<br>We are given $g(x) = 3$.<br>$$ \\frac{x+3}{2} = 3 $$<br>$$ x+3 = 3 \\times 2 $$<br>$$ x+3 = 6 $$<br>$$ x = 3 $$"
+            },
+            {
+                question: "Diberi $f(x) = 4-2x$ dan $g(x) = \\frac{x+3}{2}$. Cari nilai $x$ jika $f(x) = g(x)$. <br> Given $f(x) = 4-2x$ and $g(x) = \\frac{x+3}{2}$. Find the value of $x$ if $f(x) = g(x)$.",
+                options: ["1", "5", "-1", "2.5"],
+                answer: "1",
+                solution: "Samakan kedua-dua fungsi.<br>Equate the two functions.<br>$$ 4-2x = \\frac{x+3}{2} $$<br>$$ 2(4-2x) = x+3 $$<br>$$ 8-4x = x+3 $$<br>$$ 8-3 = x+4x $$<br>$$ 5 = 5x $$<br>$$ x = 1 $$"
+            },
+            {
+                question: "Diberi fungsi $f: x \\to x+4$ dan $g: x \\to 2x+5$. Cari $gf(x)$. <br> Given the function $f: x \\to x+4$ and $g: x \\to 2x+5$. Find $gf(x)$.",
+                options: ["$2x+13$", "$2x+9$", "$2x+14$", "$x+9$"],
+                answer: "$2x+13$",
+                solution: "$gf(x)$ bermaksud kita masukkan fungsi $f(x)$ ke dalam fungsi $g(x)$.<br>$gf(x)$ means we substitute the function $f(x)$ into the function $g(x)$.<br>$$ gf(x) = g(f(x)) $$<br>$$ gf(x) = g(x+4) $$<br>Gantikan $x$ dalam $g(x)$ dengan $(x+4)$:<br>Replace $x$ in $g(x)$ with $(x+4)$:<br>$$ gf(x) = 2(x+4) + 5 $$<br>$$ gf(x) = 2x + 8 + 5 $$<br>$$ gf(x) = 2x + 13 $$"
+            },
+            {
+                question: "Diberi fungsi $f: x \\to x+4$ dan $g: x \\to 2x+5$. Cari $fg(x)$. <br> Given the function $f: x \\to x+4$ and $g: x \\to 2x+5$. Find $fg(x)$.",
+                options: ["$2x+9$", "$2x+13$", "$x+9$", "$2x+20$"],
+                answer: "$2x+9$",
+                solution: "$fg(x)$ bermaksud kita masukkan fungsi $g(x)$ ke dalam fungsi $f(x)$.<br>$fg(x)$ means we substitute the function $g(x)$ into the function $f(x)$.<br>$$ fg(x) = f(g(x)) $$<br>$$ fg(x) = f(2x+5) $$<br>Gantikan $x$ dalam $f(x)$ dengan $(2x+5)$:<br>Replace $x$ in $f(x)$ with $(2x+5)$:<br>$$ fg(x) = (2x+5) + 4 $$<br>$$ fg(x) = 2x + 9 $$"
+            },
+            {
+                question: "Diberi fungsi $f: x \\to x+4$ dan $g: x \\to 2x+5$. Cari $gf(3)$. <br> Given the function $f: x \\to x+4$ and $g: x \\to 2x+5$. Find $gf(3)$.",
+                options: ["19", "15", "11", "23"],
+                answer: "19",
+                solution: "Kaedah 1: Cari $f(3)$ dahulu.<br>Method 1: Find $f(3)$ first.<br>$$ f(3) = 3+4 = 7 $$<br>Kemudian, cari $g(7)$.<br>Then, find $g(7)$.<br>$$ g(7) = 2(7)+5 = 14+5 = 19 $$<br>Kaedah 2: Guna fungsi gubahan $gf(x)$ yang telah dicari.<br>Method 2: Use the composite function $gf(x)$ that was found.<br>Dari soalan sebelumnya, $gf(x) = 2x+13$.<br>From the previous question, $gf(x) = 2x+13$.<br>$$ gf(3) = 2(3)+13 = 6+13 = 19 $$"
+            },
+            {
+                question: "Diberi fungsi $f: x \\to \\frac{4}{x+1}, x \\neq -1$ dan $g: x \\to 5x+1$. Cari $fg(x)$. <br> Given the function $f: x \\to \\frac{4}{x+1}, x \\neq -1$ and $g: x \\to 5x+1$. Find $fg(x)$.",
+                options: ["$\\frac{4}{5x+2}$", "$\\frac{20}{x+1}+1$", "$\\frac{4}{5x+1}$", "$5x+5$"],
+                answer: "$\\frac{4}{5x+2}$",
+                solution: "Masukkan $g(x)$ ke dalam $f(x)$.<br>Substitute $g(x)$ into $f(x)$.<br>$$ fg(x) = f(g(x)) = f(5x+1) $$<br>$$ fg(x) = \\frac{4}{(5x+1)+1} $$<br>$$ fg(x) = \\frac{4}{5x+2} $$"
+            },
+            {
+                question: "Diberi fungsi $g: x \\to 5x+1$. Cari $g^2(2)$. <br> Given the function $g: x \\to 5x+1$. Find $g^2(2)$.",
+                options: ["56", "11", "26", "55"],
+                answer: "56",
+                solution: "$g^2(2)$ bermaksud $g(g(2))$.<br>$g^2(2)$ means $g(g(2))$.<br>Cari $g(2)$ dahulu.<br>Find $g(2)$ first.<br>$$ g(2) = 5(2)+1 = 11 $$<br>Kemudian, cari $g(11)$.<br>Then, find $g(11)$.<br>$$ g(11) = 5(11)+1 = 55+1 = 56 $$"
+            },
+            {
+                question: "Diberi fungsi $g(x)=2x-3$ dan $h(x)=2x^2+2$. Cari $hg(x)$. <br> Given the function $g(x)=2x-3$ and $h(x)=2x^2+2$. Find $hg(x)$.",
+                options: ["$8x^2-24x+20$", "$4x^2-12x+11$", "$2(2x-3)^2+2$", "$8x^2-24x+18$"],
+                answer: "$8x^2-24x+20$",
+                solution: "Masukkan $g(x)$ ke dalam $h(x)$.<br>Substitute $g(x)$ into $h(x)$.<br>$$ hg(x) = h(g(x)) = h(2x-3) $$<br>$$ hg(x) = 2(2x-3)^2 + 2 $$<br>Kembangkan $(2x-3)^2$:<br>Expand $(2x-3)^2$:<br>$$ (2x-3)(2x-3) = 4x^2 - 12x + 9 $$<br>Gantikan semula:<br>Substitute back:<br>$$ hg(x) = 2(4x^2 - 12x + 9) + 2 $$<br>$$ hg(x) = 8x^2 - 24x + 18 + 2 $$<br>$$ hg(x) = 8x^2 - 24x + 20 $$"
+            },
+            {
+                question: "Diberi fungsi $g(x)=2x-3$ dan $h(x)=2x^2+2$. Cari $gh(x)$. <br> Given the function $g(x)=2x-3$ and $h(x)=2x^2+2$. Find $gh(x)$.",
+                options: ["$4x^2+1$", "$4x^2-1$", "$8x^2-24x+20$", "$2(2x^2+2)-3$"],
+                answer: "$4x^2+1$",
+                solution: "Masukkan $h(x)$ ke dalam $g(x)$.<br>Substitute $h(x)$ into $g(x)$.<br>$$ gh(x) = g(h(x)) = g(2x^2+2) $$<br>$$ gh(x) = 2(2x^2+2) - 3 $$<br>$$ gh(x) = 4x^2 + 4 - 3 $$<br>$$ gh(x) = 4x^2 + 1 $$"
+            },
+            {
+                question: "Diberi fungsi $f(x)=2x+1$ dan $g(x)=\\frac{x}{x+1}, x \\neq -1$. Cari nilai $fg(-2)$. <br> Given the function $f(x)=2x+1$ and $g(x)=\\frac{x}{x+1}, x \\neq -1$. Find the value of $fg(-2)$.",
+                options: ["5", "-3", "3", "1"],
+                answer: "5",
+                solution: "Cari $g(-2)$ dahulu.<br>Find $g(-2)$ first.<br>$$ g(-2) = \\frac{-2}{-2+1} = \\frac{-2}{-1} = 2 $$<br>Kemudian, cari $f(2)$.<br>Then, find $f(2)$.<br>$$ f(2) = 2(2)+1 = 4+1 = 5 $$"
+            },
+            {
+                question: "Diberi $f(x) = 5-8x$. Cari objek bagi 6. <br> Given $f(x) = 5-8x$. Find the object of 6.",
+                options: ["$-\\frac{1}{8}$", "$\\frac{1}{8}$", "-43", "1"],
+                answer: "$-\\frac{1}{8}$",
+                solution: "Kita diberi $f(x) = 6$.<br>We are given $f(x) = 6$.<br>$$ 5 - 8x = 6 $$<br>$$ -8x = 6 - 5 $$<br>$$ -8x = 1 $$<br>$$ x = -\\frac{1}{8} $$"
+            },
+            {
+                question: "Fungsi $f$ ditakrifkan oleh $f(x) = x+k$. Cari nilai $k$ dengan keadaan $f(4)=2$. <br> The function $f$ is defined by $f(x) = x+k$. Find the value of $k$ such that $f(4)=2$.",
+                options: ["-2", "2", "6", "-6"],
+                answer: "-2",
+                solution: "Kita diberi $f(4)=2$. Gantikan $x=4$ ke dalam fungsi.<br>We are given $f(4)=2$. Substitute $x=4$ into the function.<br>$$ f(4) = 4+k $$<br>$$ 2 = 4+k $$<br>$$ k = 2-4 = -2 $$"
+            },
+            {
+                question: "Diberi fungsi $h(x) = 3x - 5$, cari imej bagi -2. <br> Given the function $h(x) = 3x - 5$, find the image of -2.",
+                options: ["-11", "1", "11", "-1"],
+                answer: "-11",
+                solution: "Gantikan $x$ dengan -2 dalam fungsi $h(x)$.<br>Substitute $x$ with -2 into the function $h(x)$.<br>$$ h(-2) = 3(-2) - 5 $$<br>$$ h(-2) = -6 - 5 $$<br>$$ h(-2) = -11 $$"
+            },
+            {
+                question: "Diberi fungsi $g: x \\to \\frac{2x-4}{3}$, cari nilai $g(5)$. <br> Given the function $g: x \\to \\frac{2x-4}{3}$, find the value of $g(5)$.",
+                options: ["2", "6", "10/3", "14/3"],
+                answer: "2",
+                solution: "Gantikan $x$ dengan 5 ke dalam fungsi.<br>Substitute $x$ with 5 into the function.<br>$$ g(5) = \\frac{2(5)-4}{3} $$<br>$$ g(5) = \\frac{10-4}{3} $$<br>$$ g(5) = \\frac{6}{3} $$<br>$$ g(5) = 2 $$"
+            },
+            {
+                question: "Diberi fungsi $f: x \\to 7-3x$. Cari objek apabila imej ialah -5. <br> Given the function $f: x \\to 7-3x$. Find the object when the image is -5.",
+                options: ["4", "-4", "22", "2/3"],
+                answer: "4",
+                solution: "Kita diberi $f(x) = -5$.<br>We are given $f(x) = -5$.<br>$$ 7 - 3x = -5 $$<br>$$ -3x = -5 - 7 $$<br>$$ -3x = -12 $$<br>$$ x = 4 $$"
+            },
+            {
+                question: "Diberi fungsi $f(x) = x^2$ dan $g(x) = x+1$. Cari $gf(x)$. <br> Given the function $f(x) = x^2$ and $g(x) = x+1$. Find $gf(x)$.",
+                options: ["$x^2+1$", "$(x+1)^2$", "$x^2+x$", "$x^2+2x+1$"],
+                answer: "$x^2+1$",
+                solution: "Masukkan $f(x)$ ke dalam $g(x)$.<br>Substitute $f(x)$ into $g(x)$.<br>$$ gf(x) = g(f(x)) = g(x^2) $$<br>$$ gf(x) = (x^2) + 1 $$<br>$$ gf(x) = x^2 + 1 $$"
+            },
+            {
+                question: "Diberi fungsi $h(x) = 4x-1$. Cari $h^2(x)$. <br> Given the function $h(x) = 4x-1$. Find $h^2(x)$.",
+                options: ["$16x-5$", "$16x^2-8x+1$", "$8x-2$", "$16x-1$"],
+                answer: "$16x-5$",
+                solution: "$h^2(x)$ bermaksud $h(h(x))$.<br>$h^2(x)$ means $h(h(x))$.<br>$$ h(h(x)) = h(4x-1) $$<br>$$ h(h(x)) = 4(4x-1) - 1 $$<br>$$ h(h(x)) = 16x - 4 - 1 $$<br>$$ h(h(x)) = 16x - 5 $$"
+            },
+            {
+                question: "Fungsi $g$ ditakrifkan oleh $g(x) = mx-3$. Diberi $g(2)=7$, cari nilai $m$. <br> The function $g$ is defined by $g(x) = mx-3$. Given $g(2)=7$, find the value of $m$.",
+                options: ["5", "2", "4", "10"],
+                answer: "5",
+                solution: "Gantikan $x=2$ dan $g(2)=7$ ke dalam fungsi.<br>Substitute $x=2$ and $g(2)=7$ into the function.<br>$$ 7 = m(2) - 3 $$<br>$$ 7+3 = 2m $$<br>$$ 10 = 2m $$<br>$$ m = 5 $$"
+            },
+            {
+                question: "Diberi $f(x) = |2x-3|$. Cari imej bagi 1. <br> Given $f(x) = |2x-3|$. Find the image of 1.",
+                options: ["1", "-1", "5", "-5"],
+                answer: "1",
+                solution: "Fungsi modulus sentiasa memberikan hasil positif.<br>The absolute value function always returns a positive result.<br>$$ f(1) = |2(1)-3| $$<br>$$ f(1) = |2-3| $$<br>$$ f(1) = |-1| $$<br>$$ f(1) = 1 $$"
+            },
+            {
+                question: "Diberi $f(x)=x+5$ dan $g(x)=x^2$. Cari $gf(x)$. <br> Given $f(x)=x+5$ and $g(x)=x^2$. Find $gf(x)$.",
+                options: ["$(x+5)^2$", "$x^2+5$", "$x^2+25$", "$x^2+10x+25$"],
+                answer: "$(x+5)^2$",
+                solution: "$gf(x) = g(f(x)) = g(x+5) = (x+5)^2$. The option $x^2+10x+25$ is also correct if expanded, but $(x+5)^2$ is the more direct form.<br>$Pilihan $x^2+10x+25$ juga betul jika dikembangkan, tetapi $(x+5)^2$ adalah bentuk yang lebih terus."
+            },
+            {
+                question: "Diberi $f(x) = 2x$. Cari $f^3(x)$. <br> Given $f(x) = 2x$. Find $f^3(x)$.",
+                options: ["$8x$", "$6x$", "$2x^3$", "$8x^3$"],
+                answer: "$8x$",
+                solution: "$f^2(x) = f(f(x)) = f(2x) = 2(2x) = 4x$.<br>$f^3(x) = f(f^2(x)) = f(4x) = 2(4x) = 8x$."
+            },
+            {
+                question: "Diberi $f(x)=ax+b$, $f(0)=3$ dan $f(1)=5$. Cari nilai $a$ dan $b$. <br> Given $f(x)=ax+b$, $f(0)=3$ and $f(1)=5$. Find the values of $a$ and $b$.",
+                options: ["$a=2, b=3$", "$a=3, b=2$", "$a=5, b=3$", "$a=2, b=5$"],
+                answer: "$a=2, b=3$",
+                solution: "Dari $f(0)=3$:<br>From $f(0)=3$:<br>$$ a(0)+b = 3 \\implies b=3 $$<br>Dari $f(1)=5$:<br>From $f(1)=5$:<br>$$ a(1)+b = 5 \\implies a+b=5 $$<br>Gantikan $b=3$ ke dalam $a+b=5$:<br>Substitute $b=3$ into $a+b=5$:<br>$$ a+3=5 \\implies a=2 $$"
+            },
+            {
+                question: "Diberi $g(x) = \\frac{x-1}{2}$ dan $h(x) = 2x+1$. Cari $gh(x)$. <br> Given $g(x) = \\frac{x-1}{2}$ and $h(x) = 2x+1$. Find $gh(x)$.",
+                options: ["$x$", "$x-1$", "$2x$", "$\\frac{2x}{2}$"],
+                answer: "$x$",
+                solution: "$gh(x) = g(h(x)) = g(2x+1) = \\frac{(2x+1)-1}{2} = \\frac{2x}{2} = x$. This means $g$ and $h$ are inverse functions of each other.<br>Ini bermakna $g$ dan $h$ adalah fungsi songsang antara satu sama lain."
+            },
+            {
+                question: "Diberi fungsi $f(x) = 5-x$. Cari $f(f(x))$. <br> Given the function $f(x) = 5-x$. Find $f(f(x))$.",
+                options: ["$x$", "$25-5x$", "$10-x$", "$x-5$"],
+                answer: "$x$",
+                solution: "$f(f(x)) = f(5-x) = 5-(5-x) = 5-5+x = x$. This shows that $f(x)$ is its own inverse.<br>Ini menunjukkan $f(x)$ adalah songsangannya sendiri."
+            },
+            {
+                question: "Diberi $f(x) = x+1$ dan $g(x) = kx+2$. Cari nilai $k$ jika $gf(2)=14$. <br> Given $f(x) = x+1$ and $g(x) = kx+2$. Find the value of $k$ if $gf(2)=14$.",
+                options: ["4", "3", "5", "2"],
+                answer: "4",
+                solution: "Cari $f(2)$ dahulu: $f(2) = 2+1 = 3$.<br>First, find $f(2)$: $f(2) = 2+1 = 3$.<br>Kemudian, $g(f(2)) = g(3) = 14$.<br>Then, $g(f(2)) = g(3) = 14$.<br>Gantikan $x=3$ ke dalam $g(x)$: $k(3)+2 = 14$.<br>Substitute $x=3$ into $g(x)$: $k(3)+2 = 14$.<br>$3k = 12 \\implies k=4$."
+            },
+            {
+                question: "Diberi fungsi $f(x) = 2x - 7$, cari $f^{-1}(x)$. <br> Given the function $f(x) = 2x - 7$, find $f^{-1}(x)$.",
+                options: ["$\\frac{x+7}{2}$", "$\\frac{x-7}{2}$", "$2x+7$", "$7-2x$"],
+                answer: "$\\frac{x+7}{2}$",
+                solution: "Biarkan $y = f(x)$.<br>Let $y = f(x)$.<br>$$ y = 2x - 7 $$<br>Jadikan $x$ sebagai subjek.<br>Make $x$ the subject.<br>$$ 2x = y + 7 $$<br>$$ x = \\frac{y+7}{2} $$<br>Jadi, $f^{-1}(x) = \\frac{x+7}{2}$.<br>Therefore, $f^{-1}(x) = \\frac{x+7}{2}$."
+            },
+            {
+                question: "Diberi $g(x) = 3x + 1$, cari $g^{-1}(10)$. <br> Given $g(x) = 3x + 1$, find $g^{-1}(10)$.",
+                options: ["3", "31", "10/3", "9"],
+                answer: "3",
+                solution: "Biarkan $g^{-1}(10) = a$.<br>Let $g^{-1}(10) = a$.<br>Maka, $g(a) = 10$.<br>Then, $g(a) = 10$.<br>$$ 3a + 1 = 10 $$<br>$$ 3a = 9 $$<br>$$ a = 3 $$<br>Jadi, $g^{-1}(10) = 3$.<br>Therefore, $g^{-1}(10) = 3$."
+            },
+            {
+                question: "Diberi $f(x) = x-2$ dan $g(x) = x^2 + 3x$. Cari $fg(x)$. <br> Given $f(x) = x-2$ and $g(x) = x^2 + 3x$. Find $fg(x)$.",
+                options: ["$x^2 + 3x - 2$", "$(x-2)^2 + 3(x-2)$", "$x^2 + 3x$", "$x^2 - x - 2$"],
+                answer: "$x^2 + 3x - 2$",
+                solution: "$fg(x) = f(g(x)) = f(x^2 + 3x)$.<br>Gantikan $x^2+3x$ ke dalam $f(x)$.<br>Substitute $x^2+3x$ into $f(x)$.<br>$$ fg(x) = (x^2 + 3x) - 2 = x^2 + 3x - 2 $$"
+            },
+            {
+                question: "Diberi $h(x) = |2x - 5|$. Cari nilai-nilai $x$ apabila $h(x) = 3$. <br> Given $h(x) = |2x - 5|$. Find the values of $x$ when $h(x) = 3$.",
+                options: ["$x=1, x=4$", "$x=1, x=-4$", "$x=-1, x=4$", "$x=4$ only"],
+                answer: "$x=1, x=4$",
+                solution: "Apabila $h(x)=3$, kita ada dua kes.<br>When $h(x)=3$, we have two cases.<br>Kes 1 (Case 1):<br>$$ 2x - 5 = 3 $$<br>$$ 2x = 8 \\implies x = 4 $$<br>Kes 2 (Case 2):<br>$$ 2x - 5 = -3 $$<br>$$ 2x = 2 \\implies x = 1 $$<br>Nilai-nilai $x$ ialah 1 dan 4.<br>The values of $x$ are 1 and 4."
+            },
+            {
+                question: "Diberi $f(x) = 5x - 1$ dan $g(x) = 2x$. Cari $fg(-2)$. <br> Given $f(x) = 5x - 1$ and $g(x) = 2x$. Find $fg(-2)$.",
+                options: ["-21", "-11", "19", "-18"],
+                answer: "-21",
+                solution: "Cari $g(-2)$ dahulu.<br>Find $g(-2)$ first.<br>$$ g(-2) = 2(-2) = -4 $$<br>Kemudian, cari $f(-4)$.<br>Then, find $f(-4)$.<br>$$ f(-4) = 5(-4) - 1 = -20 - 1 = -21 $$"
+            },
+            {
+                question: "Diberi $f(x) = 2x + k$ dan $g(x) = x - 3$. Jika $fg(5) = 7$, cari nilai $k$. <br> Given $f(x) = 2x + k$ and $g(x) = x - 3$. If $fg(5) = 7$, find the value of $k$.",
+                options: ["3", "4", "7", "-3"],
+                answer: "3",
+                solution: "Cari $g(5)$ dahulu.<br>Find $g(5)$ first.<br>$$ g(5) = 5 - 3 = 2 $$<br>Maka, $fg(5) = f(g(5)) = f(2)$.<br>So, $fg(5) = f(g(5)) = f(2)$.<br>Kita diberi $f(2) = 7$.<br>We are given $f(2) = 7$.<br>$$ 2(2) + k = 7 $$<br>$$ 4 + k = 7 $$<br>$$ k = 3 $$"
+            },
+            {
+                question: "Diberi $h(x) = \\frac{x+2}{x-3}, x \\neq 3$. Cari $h^{-1}(x)$. <br> Given $h(x) = \\frac{x+2}{x-3}, x \\neq 3$. Find $h^{-1}(x)$.",
+                options: ["$\\frac{3x+2}{x-1}$", "$\\frac{x-3}{x+2}$", "$\\frac{3x-2}{x+1}$", "$\\frac{x-2}{x+3}$"],
+                answer: "$\\frac{3x+2}{x-1}$",
+                solution: "Biarkan $y = h(x)$.<br>Let $y = h(x)$.<br>$$ y = \\frac{x+2}{x-3} $$<br>$$ y(x-3) = x+2 $$<br>$$ yx - 3y = x+2 $$<br>$$ yx - x = 3y+2 $$<br>$$ x(y-1) = 3y+2 $$<br>$$ x = \\frac{3y+2}{y-1} $$<br>Jadi, $h^{-1}(x) = \\frac{3x+2}{x-1}$.<br>Therefore, $h^{-1}(x) = \\frac{3x+2}{x-1}$."
+            },
+            {
+                question: "Diberi $f(x) = x^2 - 4x + 5$. Cari imej bagi 3. <br> Given $f(x) = x^2 - 4x + 5$. Find the image of 3.",
+                options: ["2", "26", "8", "-2"],
+                answer: "2",
+                solution: "Gantikan $x=3$ ke dalam fungsi.<br>Substitute $x=3$ into the function.<br>$$ f(3) = (3)^2 - 4(3) + 5 $$<br>$$ f(3) = 9 - 12 + 5 $$<br>$$ f(3) = 2 $$"
+            },
+            {
+                question: "Diberi $f(x) = 3x-2$ dan $g(x) = 4$. Cari $fg(x)$. <br> Given $f(x) = 3x-2$ and $g(x) = 4$. Find $fg(x)$.",
+                options: ["10", "12x-2", "4", "3x+2"],
+                answer: "10",
+                solution: "$fg(x) = f(g(x)) = f(4)$.<br>Gantikan $x=4$ ke dalam $f(x)$.<br>Substitute $x=4$ into $f(x)$.<br>$$ f(4) = 3(4) - 2 = 12 - 2 = 10 $$"
+            },
             {
                 question: "Diberi fungsi $f(x) = 10 - 2x$. Cari objek bagi 4. <br> 已知函数 $f(x) = 10 - 2x$。求 4 的物。",
                 options: ["3", "6", "-3", "7"],
